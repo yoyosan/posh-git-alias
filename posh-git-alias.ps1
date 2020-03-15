@@ -62,7 +62,7 @@ function gbss()
 {
     git bisect start
 }
-function gc()
+function gc-()
 {
     git commit -v
 }
@@ -258,11 +258,11 @@ function gl-()
 }
 function glg()
 {
-    git log --stat --max-count = 10
+    git log --stat --max-count=10
 }
 function glgg()
 {
-    git log --graph --max-count = 10
+    git log --graph --max-count=10
 }
 function glgga()
 {
@@ -292,7 +292,7 @@ function gmt()
 {
     git mergetool --no-prompt
 }
-function gp()
+function gp-()
 {
     git push
 }
