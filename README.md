@@ -36,11 +36,13 @@ Re-run PowerShell or reload your Profile:
 C:\. $PROFILE
 ```
 
-If you find any bugs, please file an [issue](https://github.com/yoyosan/posh-git-alias/issues) or send me a [PR](https://github.com/yoyosan/posh-git-alias/pulls).
-
 # A list of aliases
 
 ## Git
+
+**Note:** Some of the aliases might not work since this is a WIP and I'm not using some of them frequently.
+
+If you find any bugs, please file an [issue](https://github.com/yoyosan/posh-git-alias/issues) or send me a [PR](https://github.com/yoyosan/posh-git-alias/pulls). 
 
 | Alias                  | Command                                                                           |
 |:-----------------------|:----------------------------------------------------------------------------------|
