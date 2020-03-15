@@ -28,7 +28,7 @@ C:\Notepad $PROFILE
 
 Add this line at the end of your `Microsoft.PowerShell_profile.ps1` file:
 ```
-. <PATHTOTHEFILE>\posh-git-alias.ps1
+. <ABSOLUTE-PATH-TO-THE-FILE>\posh-git-alias.ps1
 ```
 
 Re-run PowerShell or reload your Profile:
