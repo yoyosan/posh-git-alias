@@ -1,18 +1,18 @@
 function g()
 {
-    git $args[0]
+    git $args
 }
 function ga()
 {
-    git add $args[0]
+    git add $args
 }
 function gau()
 {
-    git add -u $args[0]
+    git add -u $args
 }
 function gaa()
 {
-    git add --all
+    git add --all $args
 }
 function gapa()
 {
@@ -96,7 +96,7 @@ function gcsm()
 }
 function gcb()
 {
-    git checkout -b $args[0]
+    git checkout -b $args
 }
 function gcf()
 {
@@ -128,7 +128,7 @@ function gcmsg()
 }
 function gco()
 {
-    git checkout
+    git checkout $args
 }
 function gcount()
 {
@@ -136,7 +136,7 @@ function gcount()
 }
 function gcp()
 {
-    git cherry-pick
+    git cherry-pick $args
 }
 function gcpa()
 {
@@ -161,6 +161,7 @@ function gdca()
 function gdct()
 {
     git describe --tags `git rev-list --tags --max-count = 1`
+
 
 }
 function gds()
