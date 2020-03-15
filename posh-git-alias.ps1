@@ -1,282 +1,445 @@
-function unresolve() {
-	git checkout --conflict=merge --
+function g()
+{
+    git $args[0]
+}
+function ga()
+{
+    git add $args[0]
+}
+function gau()
+{
+    git add -u $args[0]
+}
+function gaa()
+{
+    git add --all
+}
+function gapa()
+{
+    git add --patch
+}
+function gb()
+{
+    git branch
+}
+function gba()
+{
+    git branch -a
+}
+function gbd()
+{
+    git branch -d
+}
+function gbl()
+{
+    git blame -b -w
+}
+function gbnm()
+{
+    git branch --no-merged
+}
+function gbr()
+{
+    git branch --remote
+}
+function gbs()
+{
+    git bisect
+}
+function gbsb()
+{
+    git bisect bad
+}
+function gbsg()
+{
+    git bisect good
+}
+function gbsr()
+{
+    git bisect reset
+}
+function gbss()
+{
+    git bisect start
+}
+function gc()
+{
+    git commit -v
 }
-
-# temporarily ignoring files
-function ignore() {
-	git update-index --assume-unchanged
+function gc!()
+{
+    git commit -v --amend
 }
-
-function unignore() {
-	git update-index --no-assume-unchanged
+function gca()
+{
+    git commit -v -a
 }
-
-function ignored() {
-	git ls-files -v | env --unset=GREP_OPTIONS grep --perl '^[a-z] '
+function gca!()
+{
+    git commit -v -a --amend
 }
-
-function gitignored() {
-	git ls-files --others --directory --ignored --exclude-standard
+function gcan!()
+{
+    git commit -v -a --no-edit --amend
 }
-
-# git commit
-function commit() {
-	git commit --verbose
+function gcans!()
+{
+    git commit -v -a -s --no-edit --amend
 }
-
-function amend() {
-	git commit --verbose --amend --reuse-message=HEAD
+function gcam()
+{
+    git commit -a -m
 }
-
-function ci() {
-	git commit --verbose
+function gcsm()
+{
+    git commit -s -m
 }
-
-function cim() {
-	git commit --verbose --message $args[0]
+function gcb()
+{
+    git checkout -b $args[0]
 }
-
-function cima() {
-	git commit --verbose --all --message
+function gcf()
+{
+    git config --list
 }
-
-function ca() {
-	git commit --verbose --all
+function gcl()
+{
+    git clone --recursive
 }
-
-function co() {
-	git checkout
+function gclean()
+{
+    git clean -id
 }
-
-# git branch and remote
-function b() {
-	git branch
+function gpristine()
+{
+    git reset --hard; git clean -dfx
 }
-
-function bc() {
-	git checkout -b
+function gcm()
+{
+    git checkout master
 }
-
-function brs() {
-	git branch -a --verbose
+function gcd()
+{
+    git checkout develop
 }
-
-function rv() {
-	git remote -v
+function gcmsg()
+{
+    git commit -m
 }
-
-function pru() {
-	git fetch upstream 
-	git rebase upstream/master
+function gco()
+{
+    git checkout
 }
-
-function pro() {
-	git fetch origin
-	git rebase origin/master
+function gcount()
+{
+    git shortlog -sn
 }
-
-function mpull() {
-	git branch=${1:-develop}
-	git fetch origin
-	git rebase --preserve-merges origin/$branch $branch
+function gcp()
+{
+    git cherry-pick
 }
-
-function pub()  {
-	git publish
+function gcpa()
+{
+    git cherry-pick --abort
 }
-
-# git add
-function a() {
-	git add
+function gcpc()
+{
+    git cherry-pick --continue
 }
-
-function au() {
-	git add --update
+function gcs()
+{
+    git commit -S
 }
-
-function aa() {
-	git add --all
+function gd()
+{
+    git diff
 }
-
-function ai() {
-	git add --interactive
+function gdca()
+{
+    git diff --cached
 }
+function gdct()
+{
+    git describe --tags `git rev-list --tags --max-count = 1`
 
-function ap() {
-	git add --patch
 }
-
-function aaa() {
-	git add --all
-	git commit --verbose --amend --reuse-message=HEAD
+function gds()
+{
+    git diff --staged
 }
-
-function aua() {
-	git add --update
-	git commit --verbose --amend --reuse-message=HEAD
+function gdt()
+{
+    git diff-tree --no-commit-id --name-only -r
 }
-
-# git checkout
-
-function c() {
-	git checkout $args[0]
+function gdw()
+{
+    git diff --word-diff
 }
-
-function cp() {
-	git checkout --patch
+function gf()
+{
+    git fetch
 }
-
-function rp() {
-	git reset --patch
+function gfa()
+{
+    git fetch --all --prune
 }
-
-# git fetch
-function f() {
-	git fetch
+function gfo()
+{
+    git fetch origin
 }
-
-# git rebase
-function r() {
-	git rebase --interactive
+function gg()
+{
+    git gui citool
 }
-
-function rc() {
-	git rebase --continue
+function gga()
+{
+    git gui citool --amend
 }
-
-function ra() {
-	git rebase --abort
+function ggpnp()
+{
+    git pull origin $args[0]; git push origin $args[0]
 }
-
-# git diff
-function d() {
-	git diff
+function ggpull()
+{
+    git pull origin $args[0]
 }
-
-function p()  {
-	git diff --cached
+function ggl()
+{
+    git pull origin $args[0]
 }
-
-function dc() {
-	git diff --cached
+function ggpur()
+{
+    git pull --rebase origin $args[0]
 }
-
-function wd() {
-	git diff --word-diff
+function glum()
+{
+    git pull upstream master
 }
-
-function wdc() {
-	git diff --cached --word-diff
+function ggpush()
+{
+    git push origin $args[0]
 }
-
-function dt() {
-	git difftool
+function ggp()
+{
+    git push origin $args[0]
 }
-
-function dtc() {
-	git difftool --cached
+function ggfl()
+{
+    git push --force-with-lease origin $args[0]/$args[1]
 }
-
-function dtp() {
-	git difftool --tool=p4
+function ggsup()
+{
+    git branch --set-upstream-to=origin/$args[0]
 }
-
-function dtcp() {
-	git difftool --cached --tool=p4
+function gpsup()
+{
+    git push --set-upstream origin $args[0]
 }
-
-function mt() {
-	git mergetool
+function gignore()
+{
+    git update-index --assume-unchanged
 }
-
-function mtp() {
-	git mergetool --tool=p4
+function gignored()
+{
+    git ls-files -v | grep "^:lower:"
 }
-
-# git status
-function s() {
-	git status
+function git-svn-dcommit-push()
+{
+    git svn dcommit; git push github master: svntrunk
 }
-
-# git push
-function pu() {
-	git push upstream
+function gk()
+{
+    gitk --all --branches
 }
-
-function puf() {
-	git push upstream --force
+function gl()
+{
+    git pull
 }
-
-function po() {
-	git push origin $args[0]
+function glg()
+{
+    git log --stat --max-count = 10
 }
-
-function pof() {
-	git push origin --force
+function glgg()
+{
+    git log --graph --max-count = 10
 }
-
-# git log
-function l1() {
-	git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %b %Cgreen(%cd) %C(bold blue)<%an>%Creset" --abbrev-commit
+function glgga()
+{
+    git log --graph --decorate --all
 }
-
-function l2() {
-	git log --pretty=oneline --abbrev-commit --max-count=15 --decorate
+function glo()
+{
+    git log --oneline --decorate --color
 }
-
-function ll() {
-	git log --graph --date-order -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Creset %s" --date=short
+function glog()
+{
+    git log --oneline --decorate --color --graph
 }
-
-function lx() {
-	git log --graph --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %Cgreen(%cd) %C(bold blue) %an [%ae]:%Creset %n %s %n %b %n" --abbrev-commit
+function glp()
+{
+    _git_log_prettily (git log --pretty = $1)
 }
-
-function gl() {
-	git glog
+function gm()
+{
+    git merge
 }
-
-function wdw() {
-	git log --pretty="format:%an - %s"
+function gma()
+{
+    git merge --abort
 }
-
-function l() {
-	git log --graph --date-order -C -M --pretty=format:"<%h> %ad [%an] %Cgreen%d%Creset %s" --all --date=short --max-count=15
+function gmt()
+{
+    git mergetool --no-prompt
 }
-
-function gf() {
-	git log -m -S
+function gp()
+{
+    git push
 }
-
-function glb() {
-	git log
+function gpoat()
+{
+    git push origin --all; git push origin --tags
 }
-
-function glbnm() {
-	git log --no-merges
+function gr()
+{
+    git remote
 }
-
-# misc
-function pick() {
-	git cherry-pick
+function grb()
+{
+    git rebase
 }
-
-function mcp() {
-	git multi-cherry-pick
+function grba()
+{
+    git rebase --abort
 }
-
-function unstage() {
-	git reset HEAD
+function grbc()
+{
+    git rebase --continue
 }
-
-function reword() {
-	git commit --amend
+function grbd()
+{
+    git rebase develop
 }
-
-function cleanf() {
-	git clean -xdf
+function grbm()
+{
+    git rebase master
 }
-
-function review-files() {
-	git log --name-only --max-count=1
+function grbs()
+{
+    git rebase --skip
+}
+function grbi()
+{
+    git rebase -i
+}
+function grh()
+{
+    git reset HEAD
+}
+function grhh()
+{
+    git reset HEAD --hard
+}
+function grmv()
+{
+    git remote rename
+}
+function grrm()
+{
+    git remote remove
+}
+function grs()
+{
+    git restore
+}
+function grset()
+{
+    git remote set-url
+}
+function grt()
+{
+    cd $( git rev-parse --show-toplevel || echo "." )
+}
+function grup()
+{
+    git remote update
+}
+function grv()
+{
+    git remote -v
+}
+function gsd()
+{
+    git svn dcommit
+}
+function gsps()
+{
+    git show --pretty = short --show-signature
+}
+function gsr()
+{
+    git svn rebase
+}
+function gss()
+{
+    git status -s
+}
+function gst()
+{
+    git status
+}
+function gsta()
+{
+    git stash save
+}
+function gstaa()
+{
+    git stash apply
+}
+function gstd()
+{
+    git stash drop
+}
+function gstl()
+{
+    git stash list
+}
+function gstp()
+{
+    git stash pop
+}
+function gsts()
+{
+    git stash show --text
+}
+function gsu()
+{
+    git submodule update
+}
+function gts()
+{
+    git tag -s
+}
+function gunignore()
+{
+    git update-index --no-assume-unchanged
+}
+function gunwip()
+{
+    git log -n 1 | grep -q -c "--wip--"; git reset HEAD~1
+}
+function gup()
+{
+    git pull --rebase
+}
+function gvt()
+{
+    git verify-tag
+}
+function gwch()
+{
+    git whatchanged -p --abbrev-commit --pretty = medium
+}
+function gwip()
+{
+    git add -A; git ls-files --deleted -z | xargs -r0 git rm; git commit -m "--wip--"
 }
