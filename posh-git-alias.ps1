@@ -251,7 +251,7 @@ function gk()
 {
     gitk --all --branches
 }
-function gl()
+function gl-()
 {
     git pull
 }
