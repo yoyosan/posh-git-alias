@@ -62,7 +62,7 @@ If you find any bugs, please file an [issue](https://github.com/yoyosan/posh-git
 | _gbsg_                 | git bisect good                                                                   |
 | _gbsr_                 | git bisect reset                                                                  |
 | _gbss_                 | git bisect start                                                                  |
-| _gc_                   | git commit -v                                                                     |
+| _gc-_                   | git commit -v                                                                     |
 | _gc!_                  | git commit -v --amend                                                             |
 | _gca_                  | git commit -v -a                                                                  |
 | _gca!_                 | git commit -v -a --amend                                                          |
@@ -119,7 +119,7 @@ If you find any bugs, please file an [issue](https://github.com/yoyosan/posh-git
 | _gm_                   | git merge                                                                         |
 | _gma_                  | git merge --abort                                                                 |
 | _gmt_                  | git mergetool --no-prompt                                                         |
-| _gp_                   | git push                                                                          |
+| _gp-_                   | git push                                                                          |
 | _gpoat_                | git push origin --all && git push origin --tags                                   |
 | _gr_                   | git remote                                                                        |
 | _grb_                  | git rebase                                                                        |
