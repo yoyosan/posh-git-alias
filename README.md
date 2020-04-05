@@ -70,7 +70,7 @@ If you find any bugs, please file an [issue](https://github.com/yoyosan/posh-git
 | _gcans!_               | git commit -v -a -s --no-edit --amend                                             |
 | _gcam_                 | git commit -a -m                                                                  |
 | _gcsm_                 | git commit -s -m                                                                  |
-| _gcb_                  | git checkout -b                                                                   |
+| _gcb_                  | git checkout -b <branch name>                                                     |
 | _gcf_                  | git config --list                                                                 |
 | _gcl_                  | git clone --recursive                                                             |
 | _gclean_               | git clean -id                                                                     |
@@ -104,7 +104,7 @@ If you find any bugs, please file an [issue](https://github.com/yoyosan/posh-git
 | _ggp_                  | git push origin $(current_branch)                                                 |
 | _ggfl_                 | git push --force-with-lease origin <your_argument>/$(current_branch)              |
 | _ggsup_                | git branch --set-upstream-to=origin/$(current_branch)                             |
-| _gpsup_                | git push --set-upstream origin $(current_branch)                                  |
+| _gpsup_                | git push --set-upstream origin <branch name>                                      |
 | _gignore_              | git update-index --assume-unchanged                                               |
 | _gignored_             | git ls-files -v &#124; grep "^\[\[:lower:\]\]"                                    |
 | _git-svn-dcommit-push_ | git svn dcommit && git push github master:svntrunk                                |

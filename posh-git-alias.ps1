@@ -96,7 +96,7 @@ function gcsm()
 }
 function gcb()
 {
-    git checkout -b $args
+    git checkout -b $args[0]
 }
 function gcf()
 {
@@ -334,11 +334,11 @@ function grbi()
 }
 function grh()
 {
-    git reset HEAD
+    git reset HEAD $args
 }
 function grhh()
 {
-    git reset HEAD --hard
+    git reset HEAD --hard $args
 }
 function grmv()
 {
